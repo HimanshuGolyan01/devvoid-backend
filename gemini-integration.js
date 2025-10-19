@@ -5,7 +5,6 @@ export async function callGeminiAPI(prompt, apiKey) {
     throw new Error('GEMINI_API_KEY not configured');
   }
 
-  // Initialize Gemini via OpenAI-compatible SDK
   const client = new OpenAI({
     apiKey,
     baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
@@ -26,7 +25,7 @@ export async function callGeminiAPI(prompt, apiKey) {
       ],
     });
 
-    // Safely extract the message text
+    
     return (
       response?.choices?.[0]?.message?.content?.trim() ||
       "No response from Gemini"
